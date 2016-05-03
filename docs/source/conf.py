@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Bad Bath & Beyond Demo documentation build configuration file, created by
+# Bed Bath & Beyond Demo documentation build configuration file, created by
 # sphinx-quickstart on Mon May  2 02:40:30 2016.
 #
 # This file is execfile()d with the current directory set to its
@@ -55,7 +55,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Bad Bath & Beyond Demo'
+project = u'Bed Bath & Beyond Demo'
 copyright = u'2016, Liron Shimrony'
 author = u'Liron Shimrony'
 
@@ -131,7 +131,7 @@ html_theme='sphinx_rtd_theme'
 
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
-#html_title = u'Bad Bath & Beyond Demo v0.1'
+#html_title = u'Bed Bath & Beyond Demo v0.1'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = None
@@ -213,7 +213,7 @@ html_static_path = ['_static']
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'BadBathBeyondDemodoc'
+htmlhelp_basename = 'BedBathBeyondDemodoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -235,7 +235,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'BadBathBeyondDemo.tex', u'Bad Bath \\& Beyond Demo Documentation',
+    (master_doc, 'BedBathBeyondDemo.tex', u'Bed Bath \\& Beyond Demo Documentation',
      u'Liron Shimrony', 'manual'),
 ]
 
@@ -265,7 +265,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'badbathbeyonddemo', u'Bad Bath & Beyond Demo Documentation',
+    (master_doc, 'bedbathbeyonddemo', u'Bed Bath & Beyond Demo Documentation',
      [author], 1)
 ]
 
@@ -279,8 +279,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'BadBathBeyondDemo', u'Bad Bath & Beyond Demo Documentation',
-     author, 'BadBathBeyondDemo', 'One line description of project.',
+    (master_doc, 'BedBathBeyondDemo', u'Bed Bath & Beyond Demo Documentation',
+     author, 'BedBathBeyondDemo', 'One line description of project.',
      'Miscellaneous'),
 ]
 
