@@ -9,15 +9,25 @@ import seaborn as sns
 import random
 import calendar
 import json
-
+import ipdb
 @require_http_methods(['GET', 'POST'])
 def index(request):
-    return render(request, 'index.html', {"lineChart": createLineChart(), "scatterPlot": createScatterplot()})
+    agent = request.META['HTTP_USER_AGENT'].lower()
+    if "android" in agent or "iphone" in agent:
+        aspect=1.5
+    else:
+        aspect=2
+
+    return render(request, 'index.html', {"lineChart": createLineChart(aspect), "scatterPlot": createScatterplot(aspect), "aspect": aspect})
 
 
-def createLineChart():
+def createLineChart(aspect):
     """
         Create the actual line chart
+        
+        :param aspect: The returned graph size. For computers, 2 is recommended.  \
+        For mobile phones, 1.5 is the correct size.
+        :type aspect: float
 
         :return: SVG which contains the chart
         :rtype: str
@@ -27,7 +37,7 @@ def createLineChart():
     
     sns.set_style("darkgrid")
     
-    fp = sns.factorplot(x='month', y='amount', hue="state", data=df, legend=True, legend_out=False, aspect=2)
+    fp = sns.factorplot(x='month', y='amount', hue="state", data=df, legend=True, legend_out=False, aspect=aspect)
     fp.set_xlabels('Month')
     fp.set_ylabels('Amount ($)')
     fp.set_xticklabels([calendar.month_abbr[i] for i in xrange(1, 13)])
@@ -86,10 +96,14 @@ def getLineChartData(numOfTransactions=500):
 
     return  (df, states)
 
-def createScatterplot():
+def createScatterplot(aspect):
     """
         Create the actual scatter plot
-
+        
+        :param aspect: The returned graph size. For computers, 2 is recommended.  \
+        For mobile phones, 1.5 is the correct size.
+        :type aspect: float
+        
         :return: SVG which contains the plot
         :rtype: str
     """
@@ -103,7 +117,7 @@ def createScatterplot():
                     scatter=True, 
                     fit_reg=False, 
                     palette=palette, 
-                    aspect=2)
+                    aspect=aspect-0.2)
     
     for i in xrange(len(df)):
         row = df.iloc[i]
@@ -173,7 +187,7 @@ def randomizeLineChart(request):
 
         :rtype: dict
     """
-    return HttpResponse(json.dumps({"svg": createLineChart()}),
+    return HttpResponse(json.dumps({"svg": createLineChart(float(request.POST['aspect']))}),
                         content_type='application/json')
     
 
@@ -184,7 +198,7 @@ def randomizeScatterPlot(request):
 
         :rtype: dict
     """
-    return HttpResponse(json.dumps({"svg": createScatterplot()}),
+    return HttpResponse(json.dumps({"svg": createScatterplot(float(request.POST['aspect']))}),
                         content_type='application/json')
 
 

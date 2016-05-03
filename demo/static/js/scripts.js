@@ -7,7 +7,7 @@
       url:'/randomizeLineChart/',
       type: 'POST',
       datatype: "json",
-      data:{csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()},
+      data:{csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(), aspect:$('#aspect').val()},
       success: function(data){
         $("#lineChartDiv").html(data.svg)
       }
@@ -19,7 +19,7 @@
       url:'/randomizeScatterPlot/',
       type: 'POST',
       datatype: "json",
-      data:{csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()},
+      data:{csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(), aspect:$('#aspect').val()},
       success: function(data){
         $("#scatterPlotDiv").html(data.svg)
       }
