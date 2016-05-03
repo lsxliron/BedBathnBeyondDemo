@@ -1,0 +1,16 @@
+{
+  "name": "Bad Bath & Beyond Demo",
+  "authors": [
+    "Liron Shimrony <lsxliron@Lgmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "Materialize": "materialize#^0.97.6"
+  }
+}

@@ -1,0 +1,4 @@
+db.sqlite3
+*.pyc
+demo/static/bower_components
+demo/migrations
